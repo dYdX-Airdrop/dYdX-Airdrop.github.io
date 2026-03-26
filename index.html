@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>dYdX Airdrop — DYDX Token, Eligibility, Claim Guide, Staking &amp; Tokenomics (2026)</title>
+  <meta name="description" content="Complete dYdX airdrop guide (2026): how the DYDX token airdrop worked across v3 and v4, eligibility criteria, trading rewards, how to claim, DYDX staking on dYdX Chain, tokenomics, governance, security checklist, and a deep FAQ for current holders.">
+  <meta name="author" content="Crypto Finance Experts">
+  <link rel="canonical" href="https://dydx-airdrop-guide.example.com/">
+  <link rel="icon" type="image/png" href="dyd.png">
+
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://dydx-airdrop-guide.example.com/">
+  <meta property="og:title" content="dYdX Airdrop — DYDX Token, Eligibility, Claim &amp; Staking Guide (2026)">
+  <meta property="og:description" content="Full dYdX airdrop guide: DYDX token distribution, eligibility, trading rewards, staking on dYdX Chain, tokenomics, governance, and security.">
+  <meta property="og:image" content="cover.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="dYdX Airdrop — DYDX Token Guide (2026)">
+  <meta name="twitter:description" content="How the dYdX airdrop worked, DYDX eligibility, claim process, staking on dYdX Chain, tokenomics and governance for 2026.">
+
+  <style>
+    :root {
+      --r1:   #FF6B6B;
+      --r2:   #E53E3E;
+      --r3:   #C53030;
+      --ra:   #FEB2B2;
+
+      --ink:   #FFF5F5;
+      --sub:   #FED7D7;
+      --muted: #94A3B8;
+      --dim:   #64748B;
+
+      --bg:    #0A0606;
+      --card:  rgba(255,255,255,.028);
+      --line:  rgba(255,255,255,.07);
+      --line-r:rgba(255,107,107,.11);
+
+      --ok:   #34D399;
+      --warn: #FBBF24;
+      --err:  #F87171;
+
+      --r:  12px;
+      --rl: 18px;
+      --gap: 1.2rem;
+      --sh: 0 8px 28px rgba(0,0,0,.55);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0 }
+    html { scroll-behavior: smooth }
+    body {
+      font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      background-image:
+        radial-gradient(ellipse 800px 420px at 0%   0%,  rgba(197,48,48,.09),  transparent 55%),
+        radial-gradient(ellipse 600px 340px at 100% 10%, rgba(255,107,107,.05), transparent 50%),
+        radial-gradient(ellipse 500px 300px at 50%  98%, rgba(229,62,62,.05),   transparent 55%);
+      color: var(--muted);
+      line-height: 1.72;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+
+    a { color: var(--r1); text-decoration: none }
+    a:hover { text-decoration: underline }
+    img { max-width: 100%; height: auto; display: block }
+    strong { color: #FFF0F0; font-weight: 600 }
+    .container { max-width: 1080px; margin: 0 auto; padding: 0 1.4rem }
+
+    h1,h2,h3,h4 { color: var(--ink); line-height: 1.25 }
+    h1 { font-size: clamp(2rem,5vw,3.2rem); font-weight: 800; letter-spacing: -.4px }
+    h2 { font-size: clamp(1.25rem,2.5vw,1.75rem); font-weight: 700; margin-top: 1.8rem; padding-top: .7rem; border-top: 1px solid var(--line) }
+    h3 { font-size: 1.08rem; font-weight: 700; color: var(--sub) }
+    p,li,td,th { font-size: 1rem; line-height: 1.75 }
+    .lead { font-size: 1.08rem; color: #CBD5E1 }
+
+    header.hero { padding: clamp(2.5rem,6vw,5rem) 0 clamp(2rem,4vw,3.5rem); border-bottom: 1px solid var(--line) }
+    .hero-card {
+      background: var(--card); border: 1px solid var(--line-r);
+      border-radius: var(--rl); padding: clamp(1.4rem,3.5vw,2.2rem); box-shadow: var(--sh);
+    }
+    .brand-row { display: flex; align-items: center; gap: .9rem; margin-bottom: 1rem }
+    .brand-logo {
+      width: 54px; height: 54px; border-radius: 13px;
+      border: 1px solid rgba(255,107,107,.20); background: rgba(197,48,48,.08);
+      padding: .3rem; object-fit: contain; box-shadow: 0 6px 18px rgba(0,0,0,.40); flex: 0 0 auto;
+    }
+    .brand-label { color: var(--dim); font-size: .85rem; font-weight: 600; text-transform: uppercase; letter-spacing: .4px }
+    .brand-sub   { color: var(--muted); font-size: .85rem }
+
+    .cta-center { display: flex; justify-content: center; margin-top: 1.6rem }
+    .cta {
+      display: inline-flex; align-items: center; gap: .55rem;
+      background: linear-gradient(135deg, #FF6B6B, #E53E3E 50%, #C53030);
+      color: #1a0000; padding: 1.1rem 2.5rem;
+      border-radius: 13px; font-weight: 800; font-size: 1.05rem;
+      box-shadow: 0 0 0 1px rgba(255,107,107,.22), 0 6px 20px rgba(229,62,62,.22), 0 20px 44px rgba(197,48,48,.18);
+      border: none; cursor: pointer; text-decoration: none;
+      transition: transform .16s, box-shadow .16s, filter .16s;
+    }
+    .cta:hover {
+      transform: translateY(-3px) scale(1.02); filter: brightness(1.07);
+      text-decoration: none; color: #1a0000;
+      box-shadow: 0 0 0 1px rgba(255,107,107,.35), 0 10px 26px rgba(229,62,62,.30), 0 26px 52px rgba(197,48,48,.24);
+    }
+
+    .note {
+      border-left: 3px solid var(--r1); padding: .8rem 1rem;
+      background: rgba(197,48,48,.08); border-radius: 0 9px 9px 0;
+      color: var(--sub); margin-top: 1rem;
+    }
+
+    section.step-guide { padding: clamp(2rem,5vw,3.5rem) 0 }
+    .steps { display: grid; gap: var(--gap); grid-template-columns: 1fr }
+    .step {
+      background: var(--card); border: 1px solid var(--line);
+      border-top: 2px solid rgba(255,107,107,.22); border-radius: var(--r);
+      padding: 1.25rem; box-shadow: var(--sh); transition: transform .18s;
+    }
+    .step:hover { transform: translateY(-3px) }
+    .step .icon {
+      width: 44px; height: 44px; border-radius: 9px;
+      display: inline-grid; place-items: center;
+      background: rgba(197,48,48,.10); margin-bottom: .65rem;
+      font-weight: 800; font-size: .95rem; color: var(--r1);
+      border: 1px solid rgba(255,107,107,.18);
+    }
+
+    main .card {
+      background: var(--card); border: 1px solid var(--line);
+      border-radius: var(--r); padding: 1.4rem; margin: 1.2rem 0; box-shadow: var(--sh);
+    }
+    main .card > h2:first-child { margin-top: 0; border-top: none; padding-top: 0 }
+
+    .toc { border: 1px solid var(--line-r); background: rgba(197,48,48,.05); border-radius: var(--r); padding: 1.1rem 1.3rem }
+    .toc strong { color: var(--ink) }
+    .toc ul { margin: .5rem 0 0; padding-left: 1.1rem }
+    .toc li { margin: .28rem 0; font-size: .96rem }
+    .toc a { font-weight: 600 }
+
+    .grid-2 { display: grid; gap: var(--gap); grid-template-columns: 1fr }
+    .callout-grid { display: grid; gap: var(--gap); grid-template-columns: 1fr; margin-top: .8rem }
+    .mini { background: rgba(255,255,255,.02); border: 1px solid var(--line); border-radius: var(--r); padding: 1rem }
+    .mini h3 { margin-bottom: .35rem }
+    .kpi-badges { display: flex; flex-wrap: wrap; gap: .45rem; margin-top: .55rem }
+    .kpi-badges span {
+      border: 1px solid rgba(255,107,107,.18); background: rgba(197,48,48,.08);
+      color: var(--sub); padding: .26rem .54rem; border-radius: 999px; font-size: .87rem; font-weight: 600;
+    }
+
+    .table-wrap { overflow-x: auto; border-radius: var(--r); border: 1px solid var(--line) }
+    table { width: 100%; border-collapse: collapse; min-width: 480px }
+    th,td { padding: .8rem .95rem; border-bottom: 1px solid var(--line); text-align: left }
+    th { background: rgba(197,48,48,.07); color: var(--ink); font-weight: 700; font-size: .93rem }
+    tr.hi { background: rgba(197,48,48,.04) }
+    tr:hover td { background: rgba(255,255,255,.018) }
+    tr:last-child td { border-bottom: none }
+    .ok { color: var(--ok) } .warn { color: var(--warn) } .err { color: var(--err) }
+
+    /* tokenomics bars */
+    .toko-bar { display: flex; flex-direction: column; gap: .6rem; margin-top: 1rem }
+    .toko-row { display: flex; align-items: center; gap: .85rem }
+    .toko-label { min-width: 200px; font-size: .92rem; color: #CBD5E1; font-weight: 600 }
+    .toko-track { flex: 1; height: 8px; background: rgba(255,255,255,.07); border-radius: 999px; overflow: hidden }
+    .toko-fill { height: 100%; border-radius: 999px; background: linear-gradient(90deg, var(--r1), var(--r3)) }
+    .toko-pct { min-width: 42px; text-align: right; font-size: .9rem; font-weight: 700; color: var(--r1) }
+
+    .eeat { background: var(--card); border: 1px solid var(--line-r); border-radius: var(--r); padding: 1.4rem; box-shadow: var(--sh) }
+    .eeat > h2:first-child { margin-top: 0; border-top: none; padding-top: 0 }
+
+    .faq-item { border-bottom: 1px solid var(--line); padding: .9rem 0 }
+    .faq-item:last-child { border-bottom: none }
+    .faq-button { all: unset; display: flex; justify-content: space-between; align-items: flex-start; width: 100%; cursor: pointer; gap: 1rem }
+    .faq-button:focus-visible { outline: 2px solid var(--r1); border-radius: 4px }
+    .faq-button h3 { margin: 0; font-weight: 700; font-size: 1rem; line-height: 1.4 }
+    .faq-content { max-height: 0; overflow: hidden; transition: max-height .26s ease }
+    .faq-content.open { padding-top: .65rem }
+    .faq-plus { font-weight: 800; font-size: 1.35rem; color: var(--r1); flex: 0 0 auto; line-height: 1; transition: transform .2s }
+    .faq-button[aria-expanded="true"] .faq-plus { transform: rotate(45deg) }
+
+    @media(min-width:860px){
+      .steps { grid-template-columns: repeat(4,1fr) }
+      .grid-2 { grid-template-columns: 1fr 1fr }
+      .callout-grid { grid-template-columns: 1fr 1fr }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero" role="banner">
+  <div class="container">
+    <div class="hero-card">
+      <div class="brand-row">
+        <img class="brand-logo" src="dyd.png" alt="dYdX logo">
+        <div>
+          <div class="brand-label">Complete Airdrop &amp; Token Guide</div>
+          <div class="brand-sub">DYDX Token · Eligibility · Trading Rewards · dYdX Chain · Staking · Governance</div>
+        </div>
+      </div>
+
+      <h1>dYdX Airdrop</h1>
+      <p class="lead" style="margin-top:.7rem">
+        The complete guide to the <strong>dYdX DYDX token airdrop</strong> — one of the most significant
+        token distributions in DeFi history. Understand how <strong>eligibility was determined</strong>
+        across trading volume and early usage, how <strong>trading rewards and liquidity provider rewards</strong>
+        worked under the v3 distribution model, how the protocol <strong>migrated to dYdX Chain (v4)</strong>
+        with a fully sovereign Cosmos-based blockchain, how <strong>DYDX staking</strong> secures the new chain,
+        what the complete <strong>tokenomics and vesting schedule</strong> look like,
+        and how to protect yourself from the <strong>scams and phishing</strong> that surround DYDX to this day.
+      </p>
+
+      <div class="cta-center">
+        <a href="#" class="cta" aria-label="Open dYdX App">
+          <span>△</span> Open dYdX App
+        </a>
+      </div>
+
+      <div class="note">
+        <strong>Security warning:</strong> The dYdX airdrop distribution has concluded.
+        Any website, app, or message claiming you can still claim, recover, or access unclaimed DYDX
+        via an external link is a scam. Only interact with DYDX through the official dYdX interface
+        or verified CEX listings.
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- STEPS -->
+<section class="step-guide" aria-labelledby="how-works">
+  <div class="container">
+    <h2 id="how-works" style="margin-top:0;border-top:none;padding-top:0">
+      dYdX Airdrop Timeline: v3 Distribution → dYdX Chain Launch → DYDX Staking
+    </h2>
+    <div class="steps" role="list">
+      <article class="step" role="listitem">
+        <div class="icon">01</div>
+        <h3>v3 retroactive airdrop (2021)</h3>
+        <p>dYdX distributed DYDX retroactively to early users of the v3 perpetuals exchange on Ethereum. Allocations were based on historical trading volume, open interest, and prior usage — rewarding genuine traders over speculators.</p>
+      </article>
+      <article class="step" role="listitem">
+        <div class="icon">02</div>
+        <h3>Ongoing trading &amp; LP rewards</h3>
+        <p>Beyond the initial retroactive drop, dYdX v3 ran ongoing trading rewards (DYDX earned per epoch based on fees paid) and liquidity provider rewards for market makers posting competitive order book depth.</p>
+      </article>
+      <article class="step" role="listitem">
+        <div class="icon">03</div>
+        <h3>dYdX Chain v4 launch (2023)</h3>
+        <p>dYdX migrated from an Ethereum Layer 2 (StarkEx) to a fully sovereign Cosmos SDK blockchain — dYdX Chain. The new chain uses DYDX as its native staking token, with validators and delegators securing consensus.</p>
+      </article>
+      <article class="step" role="listitem">
+        <div class="icon">04</div>
+        <h3>Stake DYDX, earn trading fees</h3>
+        <p>On dYdX Chain, 100% of trading fees go to validators and stakers — not to the dYdX foundation or team. DYDX stakers earn real protocol revenue in USDC, not just token inflation rewards.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- MAIN -->
+<main class="container" role="main">
+
+  <section class="card toc" aria-label="Table of Contents">
+    <strong>On this page — dYdX Airdrop &amp; DYDX Token:</strong>
+    <ul>
+      <li><a href="#overview">What is dYdX and why was the DYDX airdrop significant</a></li>
+      <li><a href="#eligibility">dYdX airdrop eligibility: how v3 trading activity determined allocations</a></li>
+      <li><a href="#trading-rewards">Trading rewards and LP rewards: how ongoing DYDX distribution worked</a></li>
+      <li><a href="#v4">dYdX Chain v4: what changed and why it matters for DYDX holders</a></li>
+      <li><a href="#tokenomics">DYDX tokenomics: supply, distribution, and vesting schedule</a></li>
+      <li><a href="#staking">DYDX staking on dYdX Chain: validators, rewards, and unbonding</a></li>
+      <li><a href="#governance">DYDX governance: how token holders vote on protocol decisions</a></li>
+      <li><a href="#safety">dYdX airdrop safety: scams, phishing, and how to protect your DYDX</a></li>
+      <li><a href="#post-airdrop">Post-airdrop: what DYDX holders should know and monitor</a></li>
+      <li><a href="#best-practices">Best practices for DYDX holders and stakers</a></li>
+      <li><a href="#troubleshooting">Troubleshooting: missing DYDX, staking issues, bridge questions</a></li>
+      <li><a href="#eeat">Authoritative sources &amp; references</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+  </section>
+
+  <!-- OVERVIEW -->
+  <section class="card" id="overview">
+    <h2>What Is dYdX and Why Was the DYDX Airdrop Historically Significant?</h2>
+    <p>
+      <strong>dYdX</strong> is one of the largest decentralised perpetual futures exchanges in crypto,
+      offering professional-grade order book trading with deep liquidity across hundreds of markets.
+      Unlike AMM-based DEXs, dYdX uses a central limit order book (CLOB) model — the same structure
+      as Binance or Bybit — but fully on-chain and non-custodial.
+    </p>
+    <p>
+      The <strong>DYDX token airdrop</strong> in August 2021 was one of the first large-scale retroactive
+      airdrops to reward genuine DeFi users based purely on prior protocol usage. It distributed
+      approximately <strong>75 million DYDX</strong> to past traders and users — a distribution that
+      at peak market prices represented tens of thousands of dollars for heavy early users,
+      setting a precedent for how protocols could reward their communities.
+    </p>
+
+    <div class="callout-grid">
+      <div class="mini">
+        <h3>Why it stood out</h3>
+        <p style="color:var(--muted)">Retroactive, usage-based, and substantial. No points farming or complex tasks — just real trading activity on the protocol rewarded in proportion to that activity. Set the template for future major airdrops.</p>
+        <div class="kpi-badges"><span>Retroactive</span><span>Usage-based</span><span>~75M DYDX</span></div>
+      </div>
+      <div class="mini">
+        <h3>dYdX Chain evolution</h3>
+        <p style="color:var(--muted)">dYdX v4 launched its own sovereign Cosmos blockchain in 2023, turning DYDX from a governance token into a true staking and fee-sharing token with real USDC yield. A significant change in token utility.</p>
+        <div class="kpi-badges"><span>Cosmos chain</span><span>USDC fees</span><span>Real yield</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ELIGIBILITY -->
+  <section class="card" id="eligibility">
+    <h2>dYdX Airdrop Eligibility: How v3 Trading Activity Determined Allocations</h2>
+    <p>
+      The retroactive DYDX airdrop was based on a snapshot of historical on-chain activity on
+      dYdX v3 (the Ethereum L2 perpetuals exchange) prior to the token launch.
+      Allocations were tiered by cumulative trading volume, with diminishing returns at higher tiers
+      to avoid extreme concentration among the highest-volume traders.
+    </p>
+
+    <div class="table-wrap">
+      <table aria-label="Airdrop eligibility tiers">
+        <thead>
+          <tr><th>Activity category</th><th>Eligibility basis</th><th>Allocation weight</th></tr>
+        </thead>
+        <tbody>
+          <tr class="hi">
+            <td>Past trading on dYdX v3</td>
+            <td>Cumulative perpetuals trading volume pre-snapshot</td>
+            <td class="ok">Primary — largest allocation pool</td>
+          </tr>
+          <tr>
+            <td>Open positions at snapshot</td>
+            <td>Active positions in perpetual markets at snapshot date</td>
+            <td class="warn">Secondary — smaller pool</td>
+          </tr>
+          <tr class="hi">
+            <td>Prior dYdX v1/v2 users</td>
+            <td>Historical usage on earlier dYdX versions (margin, lending)</td>
+            <td class="warn">Additional allocation for long-term users</td>
+          </tr>
+          <tr>
+            <td>Sybil / wash trading</td>
+            <td>Patterns of artificial volume inflation</td>
+            <td class="err">Excluded — on-chain analysis applied</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note">
+      <strong>Volume tiers with diminishing returns:</strong> dYdX's allocation formula used logarithmic
+      scaling — a trader with $1M in volume received proportionally less than 10× a $100K trader.
+      This prevented the top 1% of traders from capturing the majority of the community allocation.
+    </div>
+  </section>
+
+  <!-- TRADING REWARDS -->
+  <section class="card" id="trading-rewards">
+    <h2>Trading Rewards and LP Rewards: How Ongoing DYDX Distribution Worked on v3</h2>
+    <p>
+      Beyond the one-time retroactive airdrop, dYdX v3 distributed DYDX continuously through
+      two ongoing reward programmes that ran for multiple epochs (each epoch lasting 28 days).
+    </p>
+
+    <div class="callout-grid">
+      <div class="mini">
+        <h3>Trading rewards</h3>
+        <p style="color:var(--muted)">Each epoch, a fixed pool of DYDX was distributed to traders proportional to their trading fees paid that epoch relative to all trading fees. The more you traded relative to the total, the larger your share of that epoch's DYDX reward pool.</p>
+        <div class="kpi-badges"><span>Fees-proportional</span><span>28-day epochs</span><span>Anyone trading</span></div>
+      </div>
+      <div class="mini">
+        <h3>Liquidity provider rewards</h3>
+        <p style="color:var(--muted)">Designated market makers earned DYDX rewards for posting tight, deep two-sided markets. Rewards were based on uptime, spread quality, and order book depth — incentivising professional liquidity provision.</p>
+        <div class="kpi-badges"><span>Market makers</span><span>Spread-based</span><span>Depth rewarded</span></div>
+      </div>
+    </div>
+
+    <div class="note">
+      <strong>v3 rewards sunset:</strong> With the launch of dYdX Chain v4, the v3 trading and LP
+      reward programmes were wound down. dYdX Chain does not use DYDX inflation for trading incentives —
+      instead, 100% of real trading fees go directly to validators and stakers in USDC.
+    </div>
+  </section>
+
+  <!-- V4 -->
+  <section class="card" id="v4">
+    <h2>dYdX Chain v4: What Changed for the Protocol and DYDX Token Holders</h2>
+    <p>
+      In late 2023, dYdX launched <strong>dYdX Chain</strong> — a fully sovereign Layer 1 blockchain
+      built on the Cosmos SDK with a native on-chain order book. This was a fundamental architectural shift
+      from dYdX v3 (which ran on Ethereum L2 via StarkEx) to a purpose-built chain where every
+      component — matching engine, order book, settlement — is fully on-chain.
+    </p>
+
+    <div class="table-wrap">
+      <table aria-label="v3 vs v4 comparison">
+        <thead>
+          <tr><th>Dimension</th><th>dYdX v3 (Ethereum L2)</th><th>dYdX Chain v4 (Cosmos)</th></tr>
+        </thead>
+        <tbody>
+          <tr class="hi">
+            <td>Architecture</td>
+            <td>StarkEx L2 on Ethereum</td>
+            <td>Sovereign Cosmos SDK L1</td>
+          </tr>
+          <tr>
+            <td>Order book</td>
+            <td>Off-chain matching, on-chain settlement</td>
+            <td>Fully on-chain CLOB — validators run matching</td>
+          </tr>
+          <tr class="hi">
+            <td>Fee destination</td>
+            <td>dYdX foundation / protocol treasury</td>
+            <td>100% to validators &amp; stakers (USDC)</td>
+          </tr>
+          <tr>
+            <td>DYDX token role</td>
+            <td>Governance + trading rewards</td>
+            <td>Chain staking token + governance</td>
+          </tr>
+          <tr class="hi">
+            <td>Validator set</td>
+            <td>N/A (Ethereum validators)</td>
+            <td>Permissioned validator set (top by stake)</td>
+          </tr>
+          <tr>
+            <td>Trading rewards</td>
+            <td>DYDX emissions per epoch</td>
+            <td>None — yield is real fee revenue in USDC</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note">
+      <strong>Why v4 matters for token holders:</strong> DYDX transformed from a governance-and-rewards
+      token into a real staking asset with USDC yield from protocol fees. This is the difference between
+      inflationary tokenomics (printing DYDX rewards) and real yield (distributing actual trading revenue).
+    </div>
+  </section>
+
+  <!-- TOKENOMICS -->
+  <section class="card" id="tokenomics">
+    <h2>DYDX Tokenomics: Total Supply, Distribution, and Vesting Schedule</h2>
+    <p>
+      DYDX has a total initial supply of <strong>1,000,000,000 tokens (1 billion DYDX)</strong>,
+      distributed across community, investors, team, and foundation allocations.
+    </p>
+
+    <div class="toko-bar" role="list" aria-label="DYDX token distribution">
+      <div class="toko-row" role="listitem">
+        <span class="toko-label">Community treasury</span>
+        <div class="toko-track"><div class="toko-fill" style="width:27.7%"></div></div>
+        <span class="toko-pct">27.7%</span>
+      </div>
+      <div class="toko-row" role="listitem">
+        <span class="toko-label">Investors</span>
+        <div class="toko-track"><div class="toko-fill" style="width:27.7%"></div></div>
+        <span class="toko-pct">27.7%</span>
+      </div>
+      <div class="toko-row" role="listitem">
+        <span class="toko-label">Founders &amp; team</span>
+        <div class="toko-track"><div class="toko-fill" style="width:15.3%"></div></div>
+        <span class="toko-pct">15.3%</span>
+      </div>
+      <div class="toko-row" role="listitem">
+        <span class="toko-label">Future employees &amp; contractors</span>
+        <div class="toko-track"><div class="toko-fill" style="width:7%"></div></div>
+        <span class="toko-pct">7.0%</span>
+      </div>
+      <div class="toko-row" role="listitem">
+        <span class="toko-label">Retroactive mining rewards</span>
+        <div class="toko-track"><div class="toko-fill" style="width:7.5%"></div></div>
+        <span class="toko-pct">7.5%</span>
+      </div>
+      <div class="toko-row" role="listitem">
+        <span class="toko-label">Trading rewards (v3)</span>
+        <div class="toko-track"><div class="toko-fill" style="width:25%"></div></div>
+        <span class="toko-pct">25.0%</span>
+      </div>
+      <div class="toko-row" role="listitem">
+        <span class="toko-label">LP rewards (v3)</span>
+        <div class="toko-track"><div class="toko-fill" style="width:7.5%"></div></div>
+        <span class="toko-pct">7.5%</span>
+      </div>
+    </div>
+
+    <div class="note" style="margin-top:1.2rem">
+      <strong>Vesting:</strong> Investor and team allocations are subject to vesting schedules with
+      cliff periods — designed to prevent immediate large-scale selling at token launch.
+      Community treasury tokens are governed by on-chain governance for deployment.
+      Check the official dYdX documentation for the current unlock schedule and remaining locked supply.
+    </div>
+  </section>
+
+  <!-- STAKING -->
+  <section class="card" id="staking">
+    <h2>DYDX Staking on dYdX Chain: Validators, Real USDC Rewards, and Unbonding</h2>
+    <p>
+      On dYdX Chain, DYDX staking secures consensus via a proof-of-stake mechanism.
+      Stakers delegate DYDX to validators who process transactions and run the on-chain order book.
+      In return, stakers receive a share of <strong>100% of trading fees in USDC</strong>
+      — genuine protocol revenue, not newly minted DYDX inflation.
+    </p>
+
+    <div class="callout-grid">
+      <div class="mini">
+        <h3>Delegated staking</h3>
+        <p style="color:var(--muted)">DYDX holders delegate to validators via the dYdX Chain interface or a compatible Cosmos wallet. No technical node operation required. Choose validators by commission rate, uptime, and governance participation.</p>
+        <div class="kpi-badges"><span>Non-custodial</span><span>Validator delegation</span><span>Cosmos standard</span></div>
+      </div>
+      <div class="mini">
+        <h3>USDC trading fee rewards</h3>
+        <p style="color:var(--muted)">All fees paid by dYdX traders flow to validators and stakers in USDC — stable, real-yield income not correlated with DYDX price. Reward rate depends on total staked supply and platform trading volume.</p>
+        <div class="kpi-badges"><span>USDC yield</span><span>Real revenue</span><span>Volume-dependent</span></div>
+      </div>
+    </div>
+
+    <div class="note">
+      <strong>Unbonding period:</strong> dYdX Chain follows Cosmos standard unbonding — typically 30 days
+      before staked DYDX returns to your liquid balance after undelegation.
+      Staked DYDX cannot be sold during the unbonding period. Plan position sizes accordingly.
+    </div>
+  </section>
+
+  <!-- GOVERNANCE -->
+  <section class="card" id="governance">
+    <h2>DYDX Governance: How Token Holders Vote on Protocol Decisions</h2>
+    <p>
+      DYDX is the governance token for dYdX Chain. On-chain governance allows DYDX stakers to
+      propose and vote on protocol changes — from parameter adjustments to treasury deployments
+      to major protocol upgrades.
+    </p>
+
+    <div class="table-wrap">
+      <table aria-label="Governance mechanics">
+        <thead>
+          <tr><th>Governance element</th><th>Details</th></tr>
+        </thead>
+        <tbody>
+          <tr class="hi">
+            <td>Voting power</td>
+            <td>Proportional to staked DYDX — only staked tokens count toward voting weight</td>
+          </tr>
+          <tr>
+            <td>Proposal types</td>
+            <td>Parameter changes, software upgrades, treasury spending, new market listings</td>
+          </tr>
+          <tr class="hi">
+            <td>Quorum requirement</td>
+            <td>A minimum percentage of staked supply must vote for a proposal to be valid</td>
+          </tr>
+          <tr>
+            <td>Voting period</td>
+            <td>Standard Cosmos SDK voting period (typically several days per proposal)</td>
+          </tr>
+          <tr class="hi">
+            <td>Validator vote delegation</td>
+            <td>Validators vote on behalf of delegators who haven't voted directly — delegators can override</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note">
+      <strong>Active governance:</strong> dYdX's transition to a fully community-owned chain has made
+      governance more consequential than most protocols. Protocol fee parameters, validator requirements,
+      and new market listings are all decided by DYDX staker votes.
+      Participating in governance is how DYDX stakers exercise meaningful influence over the protocol.
+    </div>
+  </section>
+
+  <!-- SAFETY -->
+  <section class="card" id="safety">
+    <h2>dYdX Airdrop Safety: Scams, Phishing Patterns, and How to Protect Your DYDX</h2>
+
+    <div class="table-wrap">
+      <table aria-label="Scam types and protection">
+        <thead>
+          <tr><th>Scam type</th><th>How it works</th><th>Protection</th></tr>
+        </thead>
+        <tbody>
+          <tr class="hi">
+            <td>Fake "claim portals"</td>
+            <td>Sites mimicking dYdX UI ask wallet connection to "claim" unclaimed DYDX</td>
+            <td class="ok">Airdrop is over — any claim site is a scam</td>
+          </tr>
+          <tr>
+            <td>Impersonation DMs</td>
+            <td>"dYdX support" or "team" contacts via Discord/Telegram with recovery links</td>
+            <td class="ok">Official team never DMs about claims or wallets</td>
+          </tr>
+          <tr class="hi">
+            <td>Phishing search ads</td>
+            <td>Paid ads above search results link to scam sites mimicking dydx.exchange</td>
+            <td class="ok">Bookmark official URL; ignore all search ads</td>
+          </tr>
+          <tr>
+            <td>Fake DYDX tokens</td>
+            <td>Counterfeit ERC-20 tokens named "DYDX" deployed on Ethereum or BSC</td>
+            <td class="ok">Verify contract address from official dYdX docs only</td>
+          </tr>
+          <tr class="hi">
+            <td>Bridge scams (v3 → v4 migration)</td>
+            <td>Fake "DYDX migration" sites targeting holders bridging to dYdX Chain</td>
+            <td class="ok">Use only the official bridge in official dYdX app</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note" style="margin-top:1rem">
+      <strong>Core rule:</strong> The dYdX retroactive airdrop concluded in 2021. Trading rewards
+      on v3 have also concluded. No legitimate process requires you to connect your wallet
+      to a third-party site to claim, recover, or unlock DYDX. If a site asks you to do this — it is a scam.
+    </div>
+  </section>
+
+  <!-- POST-AIRDROP -->
+  <section class="card" id="post-airdrop">
+    <h2>Post-Airdrop: What DYDX Holders Should Know and Monitor in 2026</h2>
+
+    <div class="table-wrap">
+      <table aria-label="Post-airdrop checklist">
+        <thead>
+          <tr><th>Topic</th><th>What to know</th><th>Action</th></tr>
+        </thead>
+        <tbody>
+          <tr class="hi">
+            <td>Investor &amp; team vesting</td>
+            <td>Investor (27.7%) and team (15.3%) tokens unlock on a vesting schedule — unlocks add circulating supply</td>
+            <td>Track unlock schedule via official tokenomics docs</td>
+          </tr>
+          <tr>
+            <td>v3 → v4 migration</td>
+            <td>DYDX on Ethereum must be bridged to dYdX Chain to stake and earn USDC fees</td>
+            <td>Use only official bridge — verify URL every time</td>
+          </tr>
+          <tr class="hi">
+            <td>Staking APR variability</td>
+            <td>USDC yield depends on dYdX trading volume — high volume = higher APR, low volume = lower APR</td>
+            <td>Monitor platform volume via official dYdX stats</td>
+          </tr>
+          <tr>
+            <td>Governance proposals</td>
+            <td>dYdX Chain governance is active — protocol changes require staker votes</td>
+            <td>Follow dYdX governance forum for active proposals</td>
+          </tr>
+          <tr class="hi">
+            <td>Tax implications</td>
+            <td>Airdrop tokens are taxable in most jurisdictions at FMV on receipt date; USDC staking rewards are also taxable income</td>
+            <td>Consult a crypto tax professional</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- BEST PRACTICES -->
+  <section class="card" id="best-practices">
+    <h2>Best Practices for DYDX Holders and Stakers</h2>
+    <ul style="padding-left:1.2rem">
+      <li style="margin-bottom:.5rem"><strong>Bridge to dYdX Chain using only the official bridge</strong> — verify the URL carefully. The v3→v4 bridge is a high-value transaction that scammers actively target with fake sites.</li>
+      <li style="margin-bottom:.5rem"><strong>Delegate to reputable validators</strong> — choose validators with high uptime, reasonable commission (5–10%), and active governance participation. Avoid validators with no public identity or track record.</li>
+      <li style="margin-bottom:.5rem"><strong>Account for the 30-day unbonding period</strong> before committing DYDX to staking — staked tokens cannot be sold during this window. Do not stake funds you may need in the near term.</li>
+      <li style="margin-bottom:.5rem"><strong>Use a Cosmos-compatible hardware wallet</strong> (Ledger with Cosmos app) for significant DYDX positions on dYdX Chain — Cosmos wallet security is different from EVM wallet security.</li>
+      <li style="margin-bottom:.5rem"><strong>Participate in governance</strong> — if you don't vote, your validator votes on your behalf. Review active proposals and override your validator's vote when you disagree.</li>
+      <li style="margin-bottom:.5rem"><strong>Document USDC staking rewards for tax purposes</strong> — USDC rewards received from staking are generally taxable income at receipt in most jurisdictions.</li>
+      <li><strong>Revoke stale approvals on Ethereum</strong> if you held v3 DYDX or interacted with dYdX v3 contracts — use Revoke.cash to clean up open approvals on your Ethereum address.</li>
+    </ul>
+  </section>
+
+  <!-- TROUBLESHOOTING -->
+  <section class="card" id="troubleshooting">
+    <h2>Troubleshooting dYdX: Missing DYDX, Staking Issues, and Bridge Questions</h2>
+
+    <h3>"I held DYDX on an exchange — did I receive the airdrop?"</h3>
+    <ul style="padding-left:1.2rem">
+      <li>The retroactive airdrop was distributed to on-chain wallet addresses that traded on dYdX v3 directly. If you traded via a CEX that provided dYdX access, you likely did not receive a direct airdrop — the CEX held the on-chain position, not your personal wallet.</li>
+      <li>Check whether the CEX you used passed through any airdrop allocation — some exchanges credited users who held dYdX positions at the snapshot date.</li>
+    </ul>
+
+    <h3>"My DYDX is on Ethereum — how do I stake it on dYdX Chain?"</h3>
+    <ul style="padding-left:1.2rem">
+      <li>You need to bridge DYDX from Ethereum to dYdX Chain using the official bridge in the dYdX app. This is a one-way bridge — DYDX on dYdX Chain is the native chain token, not an ERC-20.</li>
+      <li>After bridging, use the official dYdX Chain interface or a compatible Cosmos wallet (Keplr, Leap) to delegate to a validator and begin earning USDC staking rewards.</li>
+    </ul>
+
+    <h3>"My staking rewards seem low compared to what I expected"</h3>
+    <ul style="padding-left:1.2rem">
+      <li>USDC staking rewards on dYdX Chain are directly tied to platform trading volume. During low-volume periods, fee revenue and therefore staking APR will be lower. Check the official dYdX stats dashboard for current volume trends.</li>
+      <li>Your validator's commission rate directly reduces your net reward — a 15% commission validator earns you 15% less than a 5% commission validator on the same staked amount.</li>
+    </ul>
+
+    <div class="note">
+      <strong>Cosmos vs EVM:</strong> dYdX Chain is a Cosmos SDK blockchain, not EVM. Troubleshooting
+      on dYdX Chain requires Cosmos-specific tools (Mintscan explorer, Keplr wallet) rather than Ethereum
+      tools (Etherscan, MetaMask). Ensure you're using the right explorer for on-chain verification.
+    </div>
+  </section>
+
+  <!-- EEAT -->
+  <section class="eeat" id="eeat" aria-labelledby="eeat-title">
+    <h2 id="eeat-title">dYdX Airdrop: Authoritative References &amp; External Sources</h2>
+
+    <h3>dYdX — Official Sources</h3>
+    <ul style="padding-left:1.2rem">
+      <li><a href="https://dydx.exchange/" target="_blank" rel="noopener nofollow">dYdX — Official Trading App</a></li>
+      <li><a href="https://docs.dydx.exchange/" target="_blank" rel="noopener nofollow">dYdX — Official Documentation</a></li>
+      <li><a href="https://dydx.forum/" target="_blank" rel="noopener nofollow">dYdX — Governance Forum</a></li>
+      <li><a href="https://github.com/dydxprotocol" target="_blank" rel="noopener nofollow">dYdX — Protocol Source Code (GitHub)</a></li>
+    </ul>
+
+    <h3>On-chain Data &amp; Analytics</h3>
+    <ul style="padding-left:1.2rem">
+      <li><a href="https://defillama.com/protocol/dydx" target="_blank" rel="noopener nofollow">DeFiLlama — dYdX TVL &amp; Volume Data</a></li>
+      <li><a href="https://www.mintscan.io/dydx" target="_blank" rel="noopener nofollow">Mintscan — dYdX Chain Explorer</a></li>
+      <li><a href="https://dune.com/browse/dashboards" target="_blank" rel="noopener nofollow">Dune Analytics — dYdX On-chain Dashboards</a></li>
+    </ul>
+
+    <h3>Tax, Security &amp; General DeFi Research</h3>
+    <ul style="padding-left:1.2rem">
+      <li><a href="https://koinly.io/guides/crypto-airdrop-tax/" target="_blank" rel="noopener nofollow">Koinly — Crypto Airdrop Tax Guide</a></li>
+      <li><a href="https://revoke.cash/" target="_blank" rel="noopener nofollow">Revoke.cash — Token Approval Manager</a></li>
+      <li><a href="https://rekt.news/" target="_blank" rel="noopener nofollow">Rekt.news — DeFi Security Post-Mortems</a></li>
+      <li><a href="https://blog.chainalysis.com/" target="_blank" rel="noopener nofollow">Chainalysis — Crypto Security Research</a></li>
+    </ul>
+
+    <div class="note" style="margin-top:1.2rem">
+      <strong>About:</strong> Prepared by Crypto Finance Experts as a practical, SEO-oriented knowledge base for
+      <em>dYdX Airdrop</em>: DYDX eligibility, trading rewards, dYdX Chain v4, staking, tokenomics, governance, safety, and troubleshooting.
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="card" id="faq" aria-labelledby="faq-title">
+    <h2 id="faq-title" style="margin-top:0;border-top:none;padding-top:0">dYdX Airdrop: Frequently Asked Questions</h2>
+
+    <div class="faq-item">
+      <button class="faq-button" aria-expanded="false" aria-controls="f1" id="b1">
+        <h3>What was the dYdX airdrop and who received it?</h3><span class="faq-plus">+</span>
+      </button>
+      <div id="f1" class="faq-content" role="region" aria-labelledby="b1">
+        <p>The dYdX retroactive airdrop in August 2021 distributed approximately 75 million DYDX tokens to past users of the dYdX v3 perpetuals exchange on Ethereum. Eligibility was based on cumulative trading volume, open positions at snapshot, and prior usage on earlier dYdX versions. Allocations were tiered with diminishing returns at higher volumes to avoid extreme concentration among the largest traders.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-button" aria-expanded="false" aria-controls="f2" id="b2">
+        <h3>Can I still claim the dYdX airdrop?</h3><span class="faq-plus">+</span>
+      </button>
+      <div id="f2" class="faq-content" role="region" aria-labelledby="b2">
+        <p>The retroactive dYdX airdrop claim window has closed. Any website currently offering to let you "claim" unclaimed DYDX is a scam. Check the official dYdX documentation for whether any residual allocation process exists. The v3 trading rewards programme has also concluded with dYdX's migration to v4 (dYdX Chain).</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-button" aria-expanded="false" aria-controls="f3" id="b3">
+        <h3>What is the difference between dYdX v3 and dYdX Chain v4?</h3><span class="faq-plus">+</span>
+      </button>
+      <div id="f3" class="faq-content" role="region" aria-labelledby="b3">
+        <p>dYdX v3 ran on Ethereum L2 (StarkEx) with off-chain order matching and DYDX inflation-based trading rewards. dYdX Chain v4 is a sovereign Cosmos SDK blockchain with a fully on-chain order book where validators process every trade. The key difference for token holders: v4 distributes 100% of real trading fees (in USDC) to validators and stakers instead of distributing inflationary DYDX token rewards.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-button" aria-expanded="false" aria-controls="f4" id="b4">
+        <h3>How do I earn yield by staking DYDX?</h3><span class="faq-plus">+</span>
+      </button>
+      <div id="f4" class="faq-content" role="region" aria-labelledby="b4">
+        <p>Bridge your DYDX from Ethereum to dYdX Chain using the official bridge in the dYdX app. Then delegate your DYDX to a validator on dYdX Chain via the official interface or a Cosmos wallet (Keplr, Leap). You will earn a proportional share of the validator's USDC trading fee revenue, minus the validator's commission. Rewards are claimed manually or auto-compounded depending on your wallet setup.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-button" aria-expanded="false" aria-controls="f5" id="b5">
+        <h3>What is the DYDX unbonding period and why does it exist?</h3><span class="faq-plus">+</span>
+      </button>
+      <div id="f5" class="faq-content" role="region" aria-labelledby="b5">
+        <p>The dYdX Chain unbonding period is approximately 30 days — the standard for Cosmos SDK chains. During this period after you undelegate, your DYDX is neither earning rewards nor immediately liquid. This delay is a security mechanism: it ensures validators cannot quickly unstake, misbehave, and exit before slashing can occur. Plan exits in advance and never stake funds needed within a month.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-button" aria-expanded="false" aria-controls="f6" id="b6">
+        <h3>Are DYDX staking rewards in DYDX or USDC?</h3><span class="faq-plus">+</span>
+      </button>
+      <div id="f6" class="faq-content" role="region" aria-labelledby="b6">
+        <p>On dYdX Chain v4, staking rewards are paid in USDC — the actual trading fees collected from the platform. This is real yield, not DYDX token inflation. The amount of USDC you earn depends on your share of total staked DYDX, your validator's commission, and the total trading volume on the platform in a given period.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-button" aria-expanded="false" aria-controls="f7" id="b7">
+        <h3>What is the total supply of DYDX and who holds it?</h3><span class="faq-plus">+</span>
+      </button>
+      <div id="f7" class="faq-content" role="region" aria-labelledby="b7">
+        <p>DYDX has a total initial supply of 1 billion tokens. The largest allocations are to the community treasury (27.7%), investors (27.7%), and ongoing trading/LP rewards for v3 (totalling ~32.5%). The founders and team hold 15.3%, subject to vesting. Investor and team tokens vest over time — their unlock schedule is a key factor to monitor for supply-side pressure on DYDX price.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-button" aria-expanded="false" aria-controls="f8" id="b8">
+        <h3>Is dYdX safe to use and has it been audited?</h3><span class="faq-plus">+</span>
+      </button>
+      <div id="f8" class="faq-content" role="region" aria-labelledby="b8">
+        <p>dYdX has been operating since 2017 and is one of the most battle-tested decentralised derivatives exchanges. Its smart contracts have been audited by multiple reputable security firms. dYdX Chain (v4) is an open-source Cosmos SDK blockchain with its own validator set. The primary user-controlled risks are phishing (always verify the official URL) and staking risks (validator slashing, unbonding illiquidity). Always access dYdX via a bookmarked official link.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-button" aria-expanded="false" aria-controls="f9" id="b9">
+        <h3>Do I need a special wallet to use dYdX Chain?</h3><span class="faq-plus">+</span>
+      </button>
+      <div id="f9" class="faq-content" role="region" aria-labelledby="b9">
+        <p>dYdX Chain is a Cosmos SDK blockchain — not an EVM chain. To interact natively with dYdX Chain (for staking, governance, or direct on-chain trading), you need a Cosmos-compatible wallet such as Keplr or Leap. The official dYdX app also supports MetaMask and EVM wallets via a compatibility layer for most trading functions, but for full dYdX Chain native functionality, a Cosmos wallet provides the best experience.</p>
+      </div>
+    </div>
+
+  </section>
+
+</main>
+
+<footer class="container" role="contentinfo" style="padding:2.5rem 0; border-top:1px solid var(--line); margin-top:2rem">
+  <p style="color:var(--dim); font-size:.93rem">© 2026 dYdX Airdrop Guide. Educational content with a security-first operational focus. Not financial or tax advice.</p>
+</footer>
+
+<script>
+  document.querySelectorAll('.faq-button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const isOpen = btn.getAttribute('aria-expanded') === 'true';
+      document.querySelectorAll('.faq-button').forEach(b => {
+        b.setAttribute('aria-expanded', 'false');
+        const c = document.getElementById(b.getAttribute('aria-controls'));
+        c.classList.remove('open'); c.style.maxHeight = '0';
+      });
+      if (!isOpen) {
+        btn.setAttribute('aria-expanded', 'true');
+        const content = document.getElementById(btn.getAttribute('aria-controls'));
+        content.classList.add('open');
+        content.style.maxHeight = content.scrollHeight + 'px';
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
